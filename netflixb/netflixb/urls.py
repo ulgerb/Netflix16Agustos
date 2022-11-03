@@ -25,6 +25,7 @@ urlpatterns = [
     path('', index, name='index'),
     # User
     path('login/', userLogin, name='userLogin'),
+    path('register/', userRegister, name='userRegister'),
     path('index/<id>/settings/', userSettings, name='userSettings'),
     
     # Profil

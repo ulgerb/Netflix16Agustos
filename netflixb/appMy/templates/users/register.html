@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+
+<div class="hero-image">
+    <!-- navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="" class="navbar-brand"><img src="img/netflix_logo.png" alt=""></a>
+        </div>
+    </nav>
+
+    <div class="hero-text">
+        <!-- form -->
+        {% if hata %}
+        <div style="margin-top: -50px;" class="alert alert-warning alert-dismissible fade show position-absolute w-100"
+            role="alert">
+            {{ hata }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+
+        <h3>Register</h3>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input-group flex-nowrap">
+                <input type="text" name="name" class="form-control" placeholder="name" aria-label="name"
+                    aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input type="text" name="username1" class="form-control" placeholder="Username" aria-label="Username"
+                    aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input type="password" name="password1" class="form-control" placeholder="Şifre Oluştur" aria-label="password"
+                    aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input type="password" name="password2" class="form-control" placeholder="Şifre Tekrar Gir"
+                    aria-label="password" aria-describedby="addon-wrapping">
+            </div>
+        
+            <button type="submit" class="btn btn-primary">Profil Oluştur</button>
+        
+        </form>
+    </div>
+
+    
+</div>
+
+{% endblock body %}

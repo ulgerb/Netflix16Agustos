@@ -41,15 +41,59 @@
                     </label>
                 </div>
 
-                <p class="p-grey">
-                    Netflix'e katılmak ister misiniz? Şimdi kaydolun. <br><br>
-                    Bu sayfa robot olmadığınızı kanıtlamak için Google reCAPTCHA tarafından korunuyor. Daha fazlasını öğrenin.
-                </p>
+               
             </form>
         </div>
 
          <!-- Footer -->
-     
+        <div class="buton mb-5 text-center">
+            <!-- Button trigger modal -->
+            <a type="button" class="text-white" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="position: absolute; bottom: 120px; margin-left: -170px;">
+                Netflix'e katılmak ister misiniz? Şimdi kaydolun.
+            </a>
+        
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="input-group flex-nowrap">
+                                    <input type="text" name="name" class="form-control" placeholder="name"
+                                        aria-label="name" aria-describedby="addon-wrapping">
+                                </div>
+                                <div class="input-group flex-nowrap">
+                                    <input type="text" name="username1" class="form-control" placeholder="Username"
+                                        aria-label="Username" aria-describedby="addon-wrapping">
+                                </div>
+                                <div class="input-group flex-nowrap">
+                                    <input type="password" name="password1" class="form-control" placeholder="Şifre Oluştur"
+                                        aria-label="password" aria-describedby="addon-wrapping">
+                                </div>
+                                <div class="input-group flex-nowrap">
+                                    <input type="password" name="password2" class="form-control" placeholder="Şifre Tekrar Gir"
+                                        aria-label="password" aria-describedby="addon-wrapping">
+                                </div>
+        
+                                <button type="submit" class="btn btn-primary">Profil Oluştur</button>
+        
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+        </div>
 </div>
 
 {% endblock body %}

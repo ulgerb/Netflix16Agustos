@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .models import UserChild
 from django.contrib.auth.models import User
 
@@ -7,8 +7,11 @@ from django.contrib.auth.models import User
 
 # USER
 def userLogin(request):
-
+    kullanici = request.user
+    print(kullanici)
     if request.method == 'POST':
+        # login
+      
         username = request.POST['username']
         password = request.POST['password']
         
@@ -21,9 +24,26 @@ def userLogin(request):
             return render(request, 'users/login.html', {
                 'hata':'Yanlış kullanıcı adı veya şifre!'
             })
-        
+        # register
+            
+                
     return render(request,'users/login.html')
 
+
+def userRegister(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        username1 = request.POST['username1']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
+
+        if password1 == password2:
+            register = User.objects.create_user(
+                username=username1, password=password1, first_name=name)
+            register.save()
+            return redirect('userLogin')
+        
+    return render(request, 'users/register.html')
 
 def userSettings(request, id):
     profil = UserChild.objects.get(id=id)
